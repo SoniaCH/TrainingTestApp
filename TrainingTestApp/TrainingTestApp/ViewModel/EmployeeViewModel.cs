@@ -4,6 +4,7 @@ using System.Text;
 using System.ComponentModel;
 using TrainingTestApp.Model;
 using TrainingTestApp.Services;
+using TrainingTestApp.View;
 
 namespace TrainingTestApp.ViewModel
 {
@@ -31,8 +32,9 @@ namespace TrainingTestApp.ViewModel
         }
         public EmployeeViewModel()
         {
-            List<Employee> employeeDatas = EmlpoyeeService.LoadEmployees();
-           
+            // List<Employee> _employeesList = EmlpoyeeService.LoadEmployees();
+            EmployeesList = new EmlpoyeeService().LoadEmployees();
+
         }
 
 

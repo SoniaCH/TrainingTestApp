@@ -13,7 +13,7 @@ namespace TrainingTestApp
 		{
 			InitializeComponent();
 
-			MainPage = new TrainingTestApp.View.AuthentificationPage();
+			MainPage = new TrainingTestApp.View.EmployeeViewPage();
 		}
 
 		protected override void OnStart ()

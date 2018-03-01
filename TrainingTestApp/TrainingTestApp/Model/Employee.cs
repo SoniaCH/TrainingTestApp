@@ -8,6 +8,7 @@ namespace TrainingTestApp.Model
     {
         public string Name { get; set; }
         public string Departement { get; set; }
+        public string ImgUrl { get; set; }
         
         public Employee() { }
     }

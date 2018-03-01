@@ -13,6 +13,8 @@
             <DataTemplate>
                 <ViewCell>
                     <StackLayout Orientation="Horizontal">
+                        <Image Aspect="AspectFill"  HeightRequest ="75" WidthRequest="75" Source="{Binding ImgUrl}" />
+                        <!-- <Image Aspect="AspectFill"  HeightRequest ="75" WidthRequest="75" Source="{local:ImageResource TrainingTestApp.m.png}" />-->
                         <Label Text="{Binding Name}" />
                         <Label Text="{Binding Departement}" />
                     </StackLayout>

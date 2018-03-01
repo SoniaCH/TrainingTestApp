@@ -5,20 +5,28 @@ using TrainingTestApp.Model;
 
 namespace TrainingTestApp.Services
 {
-    class AdminServices
+    public class AdminServices
     {
-        public List<Admin> GetAdmin()
+        public static List<Admin> GetAdmin()
         {
             var list = new List<Admin>
             {
                 new Admin
                 {
-                    Username="Mohamed",
+                    Username="Sonia",
                     Password="Backend" },
                 new Admin
                 {
-                    Username="Refka",
-                    Password="FrontEnd" },                 
+                    Username="Hana",
+                    Password="Backend" },
+                 new Admin
+                {
+                    Username="Ramzi",
+                    Password="Backend" },
+                  new Admin
+                {
+                    Username="Imed",
+                    Password="Backend" },
             };
             return list;
         }

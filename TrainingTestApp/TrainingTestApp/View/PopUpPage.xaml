@@ -17,7 +17,7 @@
 
         <!-- Page layout grid -->
 
-        <Grid ColumnSpacing="0" RowSpacing="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Grid ColumnSpacing="0" RowSpacing="0" VerticalOptions="Fill" HorizontalOptions="Fill">
 
             <Grid.RowDefinitions>
 
@@ -57,7 +57,7 @@
 
             <custom:BlurredFrame x:Name="Info" Grid.Row="1" Grid.Column="1" VerticalOptions="Fill" HorizontalOptions="Fill" Padding="0">
 
-                <StackLayout Orientation="Vertical" VerticalOptions="Center" BackgroundColor="Bisque">
+                <StackLayout Orientation="Vertical" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Bisque">
                     
                     <Image x:Name="employeeImg" HorizontalOptions="Center" HeightRequest ="100" WidthRequest="100"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
@@ -65,7 +65,7 @@
                         <Label x:Name="employeeName" FontSize="Medium"/>
                     </StackLayout>
 
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
                         <Label Text="Department : " TextColor="Black" FontSize="Medium"/>
                         <Label x:Name="employeeDepartement" FontSize="Medium"/>
                     </StackLayout>

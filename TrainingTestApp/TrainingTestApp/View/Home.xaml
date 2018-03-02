@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrainingTestApp.View.Home">
+    
+    <MasterDetailPage.Master>
+        <ContentPage Title="Home">
+            <StackLayout>
+                <Label Text="Home Page" FontSize="Large"></Label>
+                <Button Text="List of the employees" Clicked="ListPageClicked"/>
+                <Button Text="Inscription" Clicked="InscriptionPageClicked"/>
+            </StackLayout> 
+            
+        </ContentPage>   
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage></ContentPage>
+        
+    </MasterDetailPage.Detail>
+    
+    
+</MasterDetailPage>

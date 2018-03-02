@@ -59,15 +59,15 @@
 
                 <StackLayout Orientation="Vertical" VerticalOptions="Fill" HorizontalOptions="Fill" BackgroundColor="Bisque">
                     
-                    <Image x:Name="employeeImg" HorizontalOptions="Center" HeightRequest ="100" WidthRequest="100"/>
+                    <Image x:Name="employeeImg" HorizontalOptions="Center" HeightRequest ="150" WidthRequest="150"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <Label Text="Name : " TextColor="Black" FontSize="Medium"/>
-                        <Label x:Name="employeeName" FontSize="Medium"/>
+                        <Label Text="Name : " TextColor="Black" FontSize="Large"/>
+                        <Label x:Name="employeeName" FontSize="Large"/>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
-                        <Label Text="Department : " TextColor="Black" FontSize="Medium"/>
-                        <Label x:Name="employeeDepartement" FontSize="Medium"/>
+                        <Label Text="Department : " TextColor="Black" FontSize="Large"/>
+                        <Label x:Name="employeeDepartement" FontSize="Large"/>
                     </StackLayout>
                     
                     

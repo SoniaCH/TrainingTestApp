@@ -76,7 +76,7 @@ namespace TrainingTestApp.ViewModel
                     // DisplayValidLoginPrompt();
                     exist = true;
                     // I should add the function to pass from page to page
-                    Application.Current.MainPage.Navigation.PushModalAsync(new EmployeeViewPage());
+                    Application.Current.MainPage.Navigation.PushModalAsync(new Home());
                
 
                 }

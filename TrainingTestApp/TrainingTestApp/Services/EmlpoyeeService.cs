@@ -25,7 +25,7 @@ namespace TrainingTestApp.Services
                     Departement="Services" },
 
                 new Employee
-                {   ImgUrl="s.png",
+                {   ImgUrl="employee.png",
                     Name="Sonia",
                     Departement="Backend" },
                 new Employee

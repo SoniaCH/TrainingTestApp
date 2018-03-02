@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingTestApp.iOS", "Trai
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingTestApp.UWP", "TrainingTestApp\TrainingTestApp.UWP\TrainingTestApp.UWP.csproj", "{CFAC8FF0-7222-44F4-B5EA-946D4CE156FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingTestApp", "TrainingTestApp\TrainingTestApp\TrainingTestApp.csproj", "{979E2EB4-80B8-4462-8FB9-750EE8A7941F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TrainingTestApp", "TrainingTestApp\TrainingTestApp\TrainingTestApp.csproj", "{979E2EB4-80B8-4462-8FB9-750EE8A7941F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

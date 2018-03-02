@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<custom:ModalPage 
+
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+
+	xmlns:custom="clr-namespace:TrainingTestApp.CustomFormElements;assembly=TrainingTestApp"
+
+	x:Class="TrainingTestApp.View.PopUpPage">
+
+
+
+    <custom:ModalPage.Content>
+
+
+
+        <!-- Page layout grid -->
+
+        <Grid ColumnSpacing="0" RowSpacing="0" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="*" />
+
+                <RowDefinition Height="10*" />
+
+                <RowDefinition Height="*" />
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="*"/>
+
+                <ColumnDefinition Width="10*"/>
+
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+
+
+            <!-- Shadow around -->
+
+            <BoxView x:Name="Shadow1" Color="#4000" Grid.Row="0" Grid.ColumnSpan="3" />
+
+            <BoxView x:Name="Shadow2" Color="#4000" Grid.Row="1" Grid.Column="0" />
+
+            <BoxView x:Name="Shadow3" Color="#4000" Grid.Row="1" Grid.Column="2" />
+
+            <BoxView x:Name="Shadow4" Color="#4000" Grid.Row="2" Grid.ColumnSpan="3" />
+
+
+
+            <!-- Content layout grid -->
+
+            <custom:BlurredFrame x:Name="Info" Grid.Row="1" Grid.Column="1" VerticalOptions="Fill" HorizontalOptions="Fill" Padding="0">
+
+                <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                    
+                    <Image x:Name="employeeImg" HorizontalOptions="Center" HeightRequest ="100" WidthRequest="100"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="Name : " TextColor="Black" FontSize="Medium"/>
+                        <Label x:Name="employeeName" FontSize="Medium"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="Department : " TextColor="Black" FontSize="Medium"/>
+                        <Label x:Name="employeeDepartement" FontSize="Medium"/>
+                    </StackLayout>
+                    
+                    
+                </StackLayout>
+
+
+            </custom:BlurredFrame>
+
+        </Grid>
+
+
+
+    </custom:ModalPage.Content>
+
+</custom:ModalPage>

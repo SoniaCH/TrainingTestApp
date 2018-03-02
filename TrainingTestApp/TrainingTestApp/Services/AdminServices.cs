@@ -13,8 +13,8 @@ namespace TrainingTestApp.Services
             {
                 new Admin
                 {
-                    Username="Sonia",
-                    Password="Backend" },
+                    Username="s",
+                    Password="s" },
                 new Admin
                 {
                     Username="Hana",

@@ -43,7 +43,7 @@ namespace TrainingTestApp.ViewModel
 
         private void HandleSelectedItem() {
 
-            Application.Current.MainPage.Navigation.PushModalAsync(new AuthentificationPage());
+            Application.Current.MainPage.Navigation.PushModalAsync(new PopUpPage(_selectedEmployee.Name, _selectedEmployee.Departement, _selectedEmployee.ImgUrl));
 
         }
 
@@ -66,28 +66,19 @@ namespace TrainingTestApp.ViewModel
             EmployeesList = new EmlpoyeeService().LoadEmployees();
         }
 
+        // constructer with an employee information
+        public EmployeeViewModel(Employee _selectedEmployee)
+        {
+            EmployeesList = new EmlpoyeeService().LoadEmployees();
+            this.SelectedEmployee = _selectedEmployee;
+        }
+
 
         protected virtual void OnPropertyChanged(string propertyname = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }
 
-
-     
-       
-
-        //public ICommand ItemClickCommand
-        //{
-        //    get
-        //    {
-        //        return new Command((Item) =>
-        //        {
-        //            Application.Current.MainPage.Navigation.PushModalAsync(new AuthentificationPage());
-
-        //        }
-        //        );
-        //    }
-        //}
 
 
     }

@@ -57,7 +57,7 @@
 
             <custom:BlurredFrame x:Name="Info" Grid.Row="1" Grid.Column="1" VerticalOptions="Fill" HorizontalOptions="Fill" Padding="0">
 
-                <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                <StackLayout Orientation="Vertical" VerticalOptions="Center" BackgroundColor="Bisque">
                     
                     <Image x:Name="employeeImg" HorizontalOptions="Center" HeightRequest ="100" WidthRequest="100"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">

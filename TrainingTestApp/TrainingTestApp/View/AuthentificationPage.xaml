@@ -7,10 +7,10 @@
         <StackLayout Orientation="Vertical" Padding="30" Spacing="25">
             <BoxView HeightRequest="10" />
             <Image HorizontalOptions="Center" WidthRequest="300" Source="logo.png" />
-            <Frame BackgroundColor="White" HasShadow="False">
+            <Frame BackgroundColor="Beige" HasShadow="False">
                 <StackLayout Orientation="Vertical" Spacing="10">
-                    <Entry x:Name="Username" Text="{Binding Username}" Placeholder="Your Username" PlaceholderColor="Gray" TextColor="Black" />
-                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Your Password" PlaceholderColor="Gray" TextColor="Black" />
+                    <Entry x:Name="Username" Text="{Binding Username}" Placeholder="Your Username" PlaceholderColor="Gray" TextColor="Black" HorizontalOptions="Center" />
+                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Your Password" PlaceholderColor="Gray" TextColor="Black" HorizontalOptions="Center" />
                 </StackLayout>
             </Frame>
             <Button Command="{Binding SubmitCommand}" Text="Login" TextColor="Gray" FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand" BackgroundColor="Bisque" />

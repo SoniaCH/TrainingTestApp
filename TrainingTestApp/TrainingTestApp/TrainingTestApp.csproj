@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="BetterListView.cs" />
     <Compile Remove="ViewModel\CammandListView.cs" />
   </ItemGroup>
 

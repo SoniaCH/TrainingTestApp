@@ -9,10 +9,10 @@
     <ContentPage.BindingContext>
         <ViewModels:EmployeeViewModel />
     </ContentPage.BindingContext>
-    <ListView ItemsSource="{Binding EmployeesList}" SelectedItem="{Binding SelectedEmployee}" HasUnevenRows="False" SeparatorVisibility="Default" >
+    <ListView ItemsSource="{Binding EmployeesList}" SelectedItem="{Binding SelectedEmployee}" HasUnevenRows="False" SeparatorColor="SeaGreen" BackgroundColor="Beige">
         <ListView.Header>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Header" TextColor="Olive" BackgroundColor="Red" />
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="Bisque" >
+                <Label Text="Root employees" TextColor="Gray"  FontSize="Large" HorizontalOptions="Center"/>
             </StackLayout>
         </ListView.Header>
         <ListView.ItemTemplate>
@@ -20,10 +20,13 @@
                 <ViewCell>
                  
 
-                    <StackLayout Orientation="Horizontal">
-                        <Image Aspect="AspectFill"  HeightRequest ="75" WidthRequest="75" Source="{Binding ImgUrl}" />
-                        <Label Text="{Binding Name}" />
-                        <Label Text="{Binding Departement}" />
+                    <StackLayout Orientation="Horizontal" Spacing="20">
+                        <Image HeightRequest ="40" WidthRequest="40" Source="{Binding ImgUrl}" />
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="{Binding Name}" FontSize="Small"/>
+                            <Label Text="{Binding Departement}" FontSize="Micro"/>
+                        </StackLayout>
+                        
                     </StackLayout>
                     
                     

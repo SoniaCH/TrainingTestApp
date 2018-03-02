@@ -5,6 +5,9 @@ using System.ComponentModel;
 using TrainingTestApp.Model;
 using TrainingTestApp.Services;
 using TrainingTestApp.View;
+using System.Windows.Input;
+using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace TrainingTestApp.ViewModel
 {
@@ -20,7 +23,32 @@ namespace TrainingTestApp.ViewModel
         /// 
 
         //use employee entity
-        public List<Employee> _employeesList;
+
+        private Employee _selectedEmployee;
+        public Employee SelectedEmployee
+        {
+            get
+            {
+                return _selectedEmployee;
+            }
+            set
+            {
+                if (_selectedEmployee != value)
+                {
+                    _selectedEmployee = value;
+                    HandleSelectedItem();
+                }
+            }
+        }
+
+        private void HandleSelectedItem() {
+
+            Application.Current.MainPage.Navigation.PushModalAsync(new AuthentificationPage());
+
+        }
+
+
+        private List<Employee> _employeesList;
         public List<Employee> EmployeesList
         {
             get { return _employeesList; }
@@ -30,11 +58,12 @@ namespace TrainingTestApp.ViewModel
                 OnPropertyChanged();
             }
         }
+
+   
+
         public EmployeeViewModel()
         {
-            // List<Employee> _employeesList = EmlpoyeeService.LoadEmployees();
             EmployeesList = new EmlpoyeeService().LoadEmployees();
-
         }
 
 
@@ -44,9 +73,26 @@ namespace TrainingTestApp.ViewModel
         }
 
 
+     
+       
 
+        //public ICommand ItemClickCommand
+        //{
+        //    get
+        //    {
+        //        return new Command((Item) =>
+        //        {
+        //            Application.Current.MainPage.Navigation.PushModalAsync(new AuthentificationPage());
+
+        //        }
+        //        );
+        //    }
+        //}
+
+
+    }
 
 
 
     }
-}
+

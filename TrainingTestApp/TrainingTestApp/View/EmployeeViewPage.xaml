@@ -2,22 +2,32 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TrainingTestApp.View.EmployeeViewPage"
-              xmlns:ViewModels="clr-namespace:TrainingTestApp.ViewModel;assembly=TrainingTestApp">
+             xmlns:local="clr-namespace:TrainingTestApp"
+             xmlns:ViewModels="clr-namespace:TrainingTestApp.ViewModel;assembly=TrainingTestApp">
 
     <!-- By using this my user interface will recognize all properties and methods on viewModels class-->
     <ContentPage.BindingContext>
         <ViewModels:EmployeeViewModel />
     </ContentPage.BindingContext>
-    <ListView ItemsSource="{Binding EmployeesList}" HasUnevenRows="False">
+    <ListView ItemsSource="{Binding EmployeesList}" SelectedItem="{Binding SelectedEmployee}" HasUnevenRows="False" SeparatorVisibility="Default" >
+        <ListView.Header>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Header" TextColor="Olive" BackgroundColor="Red" />
+            </StackLayout>
+        </ListView.Header>
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
+                 
+
                     <StackLayout Orientation="Horizontal">
                         <Image Aspect="AspectFill"  HeightRequest ="75" WidthRequest="75" Source="{Binding ImgUrl}" />
-                        <!-- <Image Aspect="AspectFill"  HeightRequest ="75" WidthRequest="75" Source="{local:ImageResource TrainingTestApp.m.png}" />-->
                         <Label Text="{Binding Name}" />
                         <Label Text="{Binding Departement}" />
                     </StackLayout>
+                    
+                    
+                    
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>

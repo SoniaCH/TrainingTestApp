@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Windows.Input;
 using TrainingTestApp.Model;
 using TrainingTestApp.Services;
+using TrainingTestApp.View;
 using Xamarin.Forms;
 
 namespace TrainingTestApp.ViewModel
@@ -14,7 +15,8 @@ namespace TrainingTestApp.ViewModel
     public class AdminViewModel : INotifyPropertyChanged
     {
 
-        public Action DisplayInvalidLoginPrompt;
+        public Action DisplayInvalidLoginPrompt;// display alerte
+
         public Action DisplayValidLoginPrompt;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -61,9 +63,9 @@ namespace TrainingTestApp.ViewModel
 
 
         
-        public void OnSubmit()
+        public  void OnSubmit()
         {
-
+            // Loading the datas od the admin from services
             List<Admin>  adminDatas = AdminServices.GetAdmin();
             int i = 0;
             bool exist = false;
@@ -71,11 +73,16 @@ namespace TrainingTestApp.ViewModel
             while (exist==false && i < adminDatas.Count) {
                 if (username == adminDatas[i].Username && password == adminDatas[i].Password)
                 {
-                    DisplayValidLoginPrompt();
+                    // DisplayValidLoginPrompt();
                     exist = true;
+                    // I should add the function to pass from page to page
+                    Application.Current.MainPage.Navigation.PushModalAsync(new EmployeeViewPage());
+               
+
                 }
                 else {
-                    i = i + 1;
+         
+           i = i + 1;
                 }
             }
 
@@ -85,7 +92,6 @@ namespace TrainingTestApp.ViewModel
             }           
            
         }
-
        
     }
 

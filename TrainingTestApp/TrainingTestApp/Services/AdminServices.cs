@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using TrainingTestApp.Model;
 
@@ -7,9 +8,9 @@ namespace TrainingTestApp.Services
 {
     public class AdminServices
     {
-        public static List<Admin> GetAdmin()
+        public static ObservableCollection<Admin> GetAdmin()
         {
-            var list = new List<Admin>
+            var list = new ObservableCollection<Admin>
             {
                 new Admin
                 {

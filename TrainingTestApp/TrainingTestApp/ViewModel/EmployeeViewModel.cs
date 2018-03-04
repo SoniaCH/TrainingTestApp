@@ -8,10 +8,11 @@ using TrainingTestApp.View;
 using System.Windows.Input;
 using Xamarin.Forms;
 using System.Diagnostics;
+using System.Collections.ObjectModel;
 
 namespace TrainingTestApp.ViewModel
 {
-    class EmployeeViewModel:INotifyPropertyChanged
+    public class EmployeeViewModel:INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
@@ -48,8 +49,8 @@ namespace TrainingTestApp.ViewModel
         }
 
 
-        private List<Employee> _employeesList;
-        public List<Employee> EmployeesList
+        private ObservableCollection<Employee> _employeesList;
+        public ObservableCollection<Employee> EmployeesList
         {
             get { return _employeesList; }
             set
@@ -66,19 +67,25 @@ namespace TrainingTestApp.ViewModel
             EmployeesList = new EmlpoyeeService().LoadEmployees();
         }
 
+
+   
+
         // constructer with an employee information
         public EmployeeViewModel(Employee _selectedEmployee)
         {
             EmployeesList = new EmlpoyeeService().LoadEmployees();
             this.SelectedEmployee = _selectedEmployee;
+            // configure the TapCommand with a method
+           
+         
         }
-
-
+        
         protected virtual void OnPropertyChanged(string propertyname = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }
 
+      
 
 
     }

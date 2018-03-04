@@ -9,6 +9,7 @@ using TrainingTestApp.Model;
 using TrainingTestApp.Services;
 using TrainingTestApp.View;
 using Xamarin.Forms;
+using System.Collections.ObjectModel;
 
 namespace TrainingTestApp.ViewModel
 {
@@ -66,7 +67,7 @@ namespace TrainingTestApp.ViewModel
         public  void OnSubmit()
         {
             // Loading the datas od the admin from services
-            List<Admin>  adminDatas = AdminServices.GetAdmin();
+            ObservableCollection<Admin>  adminDatas = AdminServices.GetAdmin();
             int i = 0;
             bool exist = false;
 

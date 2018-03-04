@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using TrainingTestApp.ViewModel;
 using Xamarin.Forms.Xaml;
 
 namespace TrainingTestApp.View
@@ -15,20 +16,31 @@ namespace TrainingTestApp.View
 		public Home ()
 		{
 			InitializeComponent ();
+            BindingContext = new HomeViewModel();
             IsPresented = true;
-
+            
 		}
 
-        private void ListPageClicked(object sender, EventArgs e) {
-            Detail = new EmployeeViewPage();
-            IsPresented = false;
-        }
 
-        private void InscriptionPageClicked(object sender, EventArgs e)
-        {
-            Detail = new InscriptionViewPage();
-            IsPresented = false;
-        }
+       
+        
+
+      
+
+        //void PageToGo() {
+
+        //}
+
+        //private void ListPageClicked(object sender, EventArgs e) {
+        //    Detail = new EmployeeViewPage();
+        //    IsPresented = false;
+        //}
+
+        //private void InscriptionPageClicked(object sender, EventArgs e)
+        //{
+        //    Detail = new InscriptionViewPage();
+        //    IsPresented = false;
+        //}
 
     }
 }

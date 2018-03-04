@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using TrainingTestApp.Model;
 using System.Text;
+using System.Collections.ObjectModel;
 
 namespace TrainingTestApp.Services
 {
     public class EmlpoyeeService
     {
-        public List<Employee> LoadEmployees()
+        public ObservableCollection<Employee> LoadEmployees()
         {
-            var list = new List<Employee>
+            var list = new ObservableCollection<Employee>
             {
                 new Employee
                 {   ImgUrl="m.png", 

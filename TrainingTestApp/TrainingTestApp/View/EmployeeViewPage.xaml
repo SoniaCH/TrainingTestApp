@@ -2,17 +2,23 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TrainingTestApp.View.EmployeeViewPage"
-             xmlns:local="clr-namespace:TrainingTestApp"
              xmlns:ViewModels="clr-namespace:TrainingTestApp.ViewModel;assembly=TrainingTestApp">
 
     <!-- By using this my user interface will recognize all properties and methods on viewModels class-->
     <ContentPage.BindingContext>
         <ViewModels:EmployeeViewModel />
     </ContentPage.BindingContext>
-    <ListView ItemsSource="{Binding EmployeesList}" SelectedItem="{Binding SelectedEmployee}" HasUnevenRows="False" SeparatorColor="SeaGreen" BackgroundColor="Beige">
+    <ListView ItemsSource="{Binding EmployeesList}" SelectedItem="{Binding SelectedEmployee}" HasUnevenRows="False" SeparatorColor="White" BackgroundColor="Black">
         <ListView.Header>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="Bisque" >
-                <Label Text="Root employees" TextColor="Gray"  FontSize="Large" HorizontalOptions="Center"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="White" Spacing="20" >
+
+                <Image HeightRequest ="40" WidthRequest="40" Source="hum.png" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnImageTapped" NumberOfTapsRequired="1" />
+                    </Image.GestureRecognizers>
+                </Image>
+                
+                <Label Text="Root employees" TextColor="Black"  FontSize="Large" HorizontalOptions="Center"/>
             </StackLayout>
         </ListView.Header>
         <ListView.ItemTemplate>
@@ -20,11 +26,11 @@
                 <ViewCell>
                  
 
-                    <StackLayout Orientation="Horizontal" Spacing="20">
+                    <StackLayout Orientation="Horizontal" Spacing="20" BackgroundColor="Black">
                         <Image HeightRequest ="40" WidthRequest="40" Source="{Binding ImgUrl}" />
                         <StackLayout Orientation="Vertical">
-                            <Label Text="{Binding Name}" FontSize="Small"/>
-                            <Label Text="{Binding Departement}" FontSize="Micro"/>
+                            <Label Text="{Binding Name}" FontSize="Small" TextColor="White"/>
+                            <Label Text="{Binding Departement}" FontSize="Micro" TextColor="White"/>
                         </StackLayout>
                         
                     </StackLayout>

@@ -1,18 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TrainingTestApp.View.Home">
+             x:Class="TrainingTestApp.View.Home" 
+             xmlns:ViewModel="clr-namespace:TrainingTestApp.ViewModel;assembly=TrainingTestApp">
+
+    <!-- By using this my user interface will recognize all properties and methods on viewModels class-->
+    <ContentPage.BindingContext>
+        <ViewModel:HomeViewModel/>
+    </ContentPage.BindingContext>
     
     <MasterDetailPage.Master>
         <ContentPage Title="Home">
-            <StackLayout>
+            <!--<StackLayout>
                 <Label Text="Home Page" FontSize="Large"></Label>
                 <Button Text="List of the employees" Clicked="ListPageClicked"/>
                 <Button Text="Inscription" Clicked="InscriptionPageClicked"/>
-            </StackLayout> 
-            
+                
+            </StackLayout>-->
+
+            <ListView ItemsSource="{Binding PageList}" SelectedItem="{Binding SelectedPage}" HasUnevenRows="False" SeparatorColor="White" BackgroundColor="Black">
+                
+                <ListView.Header>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="White" Spacing="20" >
+                        <Image HeightRequest ="40" WidthRequest="40" Source="hum.png" ></Image>
+                        <Label Text="Home" TextColor="Black"  FontSize="Large" HorizontalOptions="Center"/>
+                    </StackLayout>
+                </ListView.Header>
+                
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" Spacing="20" BackgroundColor="Black">
+                                <Image HeightRequest ="40" WidthRequest="40" Source="{Binding IconUrl}" />
+                                <Label Text="{Binding NameOfPage}" FontSize="Medium" TextColor="White"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                
+            </ListView>
+
         </ContentPage>   
     </MasterDetailPage.Master>
+    
     <MasterDetailPage.Detail>
         <ContentPage></ContentPage>
         

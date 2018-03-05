@@ -4,16 +4,16 @@
              x:Class="TrainingTestApp.View.AuthentificationPage">
     
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Padding="30" Spacing="25">
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="25" BackgroundColor="#93dcff">
             <BoxView HeightRequest="10" />
             <Image HorizontalOptions="Center" WidthRequest="300" Source="logo.png" />
-            <Frame BackgroundColor="Beige" HasShadow="False">
-                <StackLayout Orientation="Vertical" Spacing="10">
-                    <Entry x:Name="Username" Text="{Binding Username}" Placeholder="Your Username" PlaceholderColor="Gray" TextColor="Black" HorizontalOptions="Center" />
-                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Your Password" PlaceholderColor="Gray" TextColor="Black" HorizontalOptions="Center" />
+            <Frame BackgroundColor="LightGray" HasShadow="False">
+                <StackLayout Orientation="Vertical" Spacing="10" >
+                    <Entry x:Name="Username" Text="{Binding Username}" Placeholder="Your Username" PlaceholderColor="Gray" TextColor="Gray" HorizontalOptions="Center" />
+                    <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Your Password" PlaceholderColor="Gray" TextColor="Gray" HorizontalOptions="Center" />
                 </StackLayout>
             </Frame>
-            <Button Command="{Binding SubmitCommand}" Text="Login" TextColor="Gray" FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand" BackgroundColor="Bisque" />
+            <Button Command="{Binding SubmitCommand}" Text="Login" TextColor="Gray" FontAttributes="Bold" FontSize="Large" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray" />
         </StackLayout>
     </ContentPage.Content>
     

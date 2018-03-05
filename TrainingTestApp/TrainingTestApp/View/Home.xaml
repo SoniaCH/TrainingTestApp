@@ -18,21 +18,22 @@
                 
             </StackLayout>-->
 
-            <ListView ItemsSource="{Binding PageList}" SelectedItem="{Binding SelectedPage}" HasUnevenRows="False" SeparatorColor="White" BackgroundColor="Black">
+            <ListView ItemsSource="{Binding PageList}" SelectedItem="{Binding SelectedPage}" HasUnevenRows="False" SeparatorColor="#3b2305" BackgroundColor="#f1ebe9">
                 
                 <ListView.Header>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="White" Spacing="20" >
-                        <Image HeightRequest ="40" WidthRequest="40" Source="hum.png" ></Image>
-                        <Label Text="Home" TextColor="Black"  FontSize="Large" HorizontalOptions="Center"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="#f1ebe9" Spacing="24" >
+                        <Image HeightRequest ="24" WidthRequest="24" Source="home.ico" ></Image>
+                        <Label Text="Home" TextColor="Gray"  FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center"/>
                     </StackLayout>
                 </ListView.Header>
                 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal" Spacing="20" BackgroundColor="Black">
-                                <Image HeightRequest ="40" WidthRequest="40" Source="{Binding IconUrl}" />
-                                <Label Text="{Binding NameOfPage}" FontSize="Medium" TextColor="White"/>
+                            <!--<StackLayout Orientation="Horizontal" Spacing="20" BackgroundColor="#b9b4aa">-->
+                            <StackLayout Orientation="Horizontal" Spacing="20" BackgroundColor="#f1ebe9">
+                                <Image HeightRequest ="24" WidthRequest="24" Source="{Binding IconUrl}" />
+                                <Label Text="{Binding NameOfPage}" FontSize="Small" TextColor="Gray"  VerticalOptions="Center"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

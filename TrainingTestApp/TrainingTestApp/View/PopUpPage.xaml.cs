@@ -67,7 +67,6 @@ namespace TrainingTestApp.View
             this.Img = img;
 
             InitializeComponent();
-
             employeeName.Text = name;
             employeeDepartement.Text = departement;
             employeeImg.Source = img;

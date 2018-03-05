@@ -8,29 +8,50 @@
     <ContentPage.BindingContext>
         <ViewModels:EmployeeViewModel />
     </ContentPage.BindingContext>
-    <ListView ItemsSource="{Binding EmployeesList}" SelectedItem="{Binding SelectedEmployee}" HasUnevenRows="False" SeparatorColor="White" BackgroundColor="Black">
+    <StackLayout Orientation="Vertical">
+        
+        
+        
+    <ListView ItemsSource="{Binding EmployeesListAll}" SelectedItem="{Binding SelectedEmployee}" HasUnevenRows="False" SeparatorColor="White" BackgroundColor="LightGray">
         <ListView.Header>
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" BackgroundColor="White" Spacing="20" >
-
-                <Image HeightRequest ="40" WidthRequest="40" Source="hum.png" >
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnImageTapped" NumberOfTapsRequired="1" />
-                    </Image.GestureRecognizers>
-                </Image>
-                
-                <Label Text="Root employees" TextColor="Black"  FontSize="Large" HorizontalOptions="Center"/>
-            </StackLayout>
+            <!--<StackLayout Orientation="Horizontal" BackgroundColor="#b9a592" Spacing="20" >-->
+            <StackLayout Orientation="Horizontal" BackgroundColor="#b9b4aa" Spacing="20" >
+                    <Image HeightRequest ="24" WidthRequest="24" Source="menu.ico" HorizontalOptions="Start" VerticalOptions="Center" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnImageTapped" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <SearchBar Text="{Binding SearchText}"
+                   Placeholder="Search..."
+                   BackgroundColor="#b9b4aa"
+                   VerticalOptions="End"
+                   SearchCommand="{Binding SearchCommand}"/>
+                    <Image HeightRequest ="24" WidthRequest="24" Source="b.ico" HorizontalOptions="EndAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="BackTapped" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
         </ListView.Header>
+        
+        <ListView.Footer>
+            <StackLayout Orientation="Horizontal">
+               
+            </StackLayout>
+            
+        </ListView.Footer>
+
+     
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                 
 
-                    <StackLayout Orientation="Horizontal" Spacing="20" BackgroundColor="Black">
+
+                    <StackLayout Orientation="Horizontal" Spacing="20" BackgroundColor="#b9b4aa">
                         <Image HeightRequest ="40" WidthRequest="40" Source="{Binding ImgUrl}" />
-                        <StackLayout Orientation="Vertical">
-                            <Label Text="{Binding Name}" FontSize="Small" TextColor="White"/>
-                            <Label Text="{Binding Departement}" FontSize="Micro" TextColor="White"/>
+                        <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                            <Label Text="{Binding Name}" FontSize="Small" TextColor="#3b2305"/>
+                            <Label Text="{Binding Departement}" FontSize="Micro" TextColor="#3b2305"/>
                         </StackLayout>
                         
                     </StackLayout>
@@ -41,4 +62,5 @@
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
+    </StackLayout>
 </ContentPage>

@@ -27,7 +27,7 @@ namespace TrainingTestApp.ViewModel
         /// Step 4: load data from the service admin data 
         /// Step 5: create the method needed
         /// </summary>
-        
+       #region defining the atribute 
         // Step 1:
         // the First property to be recovered from the UI
         private String username;
@@ -53,7 +53,9 @@ namespace TrainingTestApp.ViewModel
             }
         }
 
-        // Step 2:
+        #endregion
+
+        #region the function to enter the home page 
         public ICommand SubmitCommand
         { protected set; get; }
 
@@ -66,7 +68,7 @@ namespace TrainingTestApp.ViewModel
         
         public  void OnSubmit()
         {
-            // Loading the datas od the admin from services
+            // Loading the datas of the admin from services
             ObservableCollection<Admin>  adminDatas = AdminServices.GetAdmin();
             int i = 0;
             bool exist = false;
@@ -76,14 +78,12 @@ namespace TrainingTestApp.ViewModel
                 {
                     // DisplayValidLoginPrompt();
                     exist = true;
-                    // I should add the function to pass from page to page
+                    // Navigation
                     Application.Current.MainPage.Navigation.PushModalAsync(new Home());
-               
-
                 }
-                else {
-         
-           i = i + 1;
+                else
+                {
+                    i = i + 1;
                 }
             }
 
@@ -93,7 +93,9 @@ namespace TrainingTestApp.ViewModel
             }           
            
         }
-       
+
+        #endregion
+
     }
 
 

@@ -9,22 +9,24 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace TrainingTestApp.ViewModel
 {
     public class EmployeeViewModel:INotifyPropertyChanged
     {
+        
+
+        #region handling the changes of the property
         public event PropertyChangedEventHandler PropertyChanged;
-        /// <summary>
-        /// Step 1: to identify all the properties of the class 
-        /// Step 2: create the constructer of the class
-        /// Step 4: load data from the service admin data 
-        /// Step 5: create the method needed
-        /// </summary>
-        /// 
+        protected virtual void OnPropertyChanged(string propertyname = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
+        }
+        #endregion
 
-        //use employee entity
-
+        
+        #region handling the Item to select from the list
         private Employee _selectedEmployee;
         public Employee SelectedEmployee
         {
@@ -47,24 +49,120 @@ namespace TrainingTestApp.ViewModel
             Application.Current.MainPage.Navigation.PushModalAsync(new PopUpPage(_selectedEmployee.Name, _selectedEmployee.Departement, _selectedEmployee.ImgUrl));
 
         }
+        #endregion
 
+        //step1: add an attribute for word to search
+        private string _searchText = string.Empty;
 
-        private ObservableCollection<Employee> _employeesList;
-        public ObservableCollection<Employee> EmployeesList
+        public string SearchText
+
         {
-            get { return _employeesList; }
+
+            get
+            {
+                return _searchText;
+            }
+
             set
             {
-                _employeesList = value;
+                if (_searchText != value)
+                {
+                    _searchText = value ?? string.Empty;
+                    // RaisePropertyChanged();
+                    // RaisePropertyChanged(() => SearchText);
+                    OnPropertyChanged();
+                    // Perform the search
+
+                    if (SearchCommand.CanExecute(null))
+
+                    {
+
+                        SearchCommand.Execute(null);
+
+                    }
+                }
+            }
+
+        }
+
+        private ObservableCollection<Employee> _employeesListAll;
+        public ObservableCollection<Employee> EmployeesListAll
+        {
+            get
+            {
+                ObservableCollection<Employee> _employeesListFound = new ObservableCollection<Employee>();
+                if (_employeesListAll != null)
+                {
+
+                    List<Employee> entities = (from e in _employeesListAll where e.Name.Contains(_searchText) select e).ToList();
+
+                    if (entities != null && entities.Any())
+
+                    {
+
+                        _employeesListFound = new ObservableCollection<Employee>(entities);
+
+                    }
+                }
+                return _employeesListFound;
+            }
+            set
+            {
+                _employeesListAll = value;
                 OnPropertyChanged();
             }
         }
 
-   
+        // OnResearch
 
+        //step 2: create the command method for searching
+
+        #region Command and associated methods for SearchCommand
+
+        private Command _searchCommand;
+
+        public ICommand SearchCommand
+
+        {
+
+            get
+
+            {
+
+                _searchCommand = _searchCommand ?? new Xamarin.Forms.Command(DoSearchCommand, CanExecuteSearchCommand);
+
+                return _searchCommand;
+
+            }
+
+        }
+
+        private void DoSearchCommand()
+
+        {
+
+            // Refresh the list, which will automatically apply the search text
+
+            //RaisePropertyChanged(() => YourList);
+            OnPropertyChanged();
+
+        }
+
+        private bool CanExecuteSearchCommand()
+
+        {
+
+            return true;
+
+        }
+
+        #endregion
+
+
+        #region Constructer
         public EmployeeViewModel()
         {
-            EmployeesList = new EmlpoyeeService().LoadEmployees();
+            EmployeesListAll = new EmlpoyeeService().LoadEmployees();
         }
 
 
@@ -73,24 +171,19 @@ namespace TrainingTestApp.ViewModel
         // constructer with an employee information
         public EmployeeViewModel(Employee _selectedEmployee)
         {
-            EmployeesList = new EmlpoyeeService().LoadEmployees();
+            EmployeesListAll = new EmlpoyeeService().LoadEmployees();
             this.SelectedEmployee = _selectedEmployee;
-            // configure the TapCommand with a method
-           
-         
         }
-        
-        protected virtual void OnPropertyChanged(string propertyname = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
-        }
+        #endregion
 
-      
+
+
+
 
 
     }
 
 
 
-    }
+}
 

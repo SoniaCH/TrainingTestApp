@@ -37,5 +37,19 @@ namespace TrainingTestApp.View
             }
         }
 
+        protected void BackTapped(object sender, EventArgs args)
+        {
+            try
+            {
+                //Code to execute on tapped event
+
+                Application.Current.MainPage.Navigation.PushModalAsync(new Home());
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
